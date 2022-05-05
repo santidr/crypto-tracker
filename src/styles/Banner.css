@@ -1,0 +1,36 @@
+.banner {
+    background-image: url('../../public/banner2.jpg');
+}
+
+.banner-content {
+    display: flex;
+    height: 400px;
+    flex-direction: column;
+    padding-top: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-title {
+    font-weight: 700;
+    font-size: 48px;
+}
+
+.banner-carousel {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.banner-carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: capitalize;
+    color: white;
+}
+
+.banner-carousel-item:hover {
+    color: #c2bfbf;
+}
