@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
 }
 
-.app {
+body, .app {
     background-color: #14161A;
     color: white;
     min-height: 100vh;

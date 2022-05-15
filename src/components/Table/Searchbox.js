@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Searchtbox = ({ coinList, setCoinList, data }) => {
+const Searchtbox = ({ coinList, setCoinList, data, setPage: setCurrentPage }) => {
 
     const [searchInput, setSearchInput] = useState('')
 
@@ -10,6 +10,8 @@ const Searchtbox = ({ coinList, setCoinList, data }) => {
 
     const handleSearch = (e) => {
         const key = e.key
+
+        setCurrentPage(1)
 
         if (key === 'Backspace') {
             setCoinList(data)

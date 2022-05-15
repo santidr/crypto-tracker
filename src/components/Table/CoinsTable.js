@@ -9,11 +9,19 @@ import useFetch from '../../hooks/useFetch'
 import Searchtbox from './Searchbox'
 
 import '../../styles/Table.css'
+import Pagination from './Pagination'
 
 const CoinsTable = () => {
     const { currency } = useContext(Crypto)
     const { data } = useFetch(CoinList(currency.name))
     const [ coinList, setCoinList] = useState([])
+    
+    const [ currentPage, setCurrentPage] = useState(1)
+    const [ coinsPerPage, setCoinsPerPage] = useState(10)
+
+    const indexOfLastItem = currentPage * coinsPerPage
+    const indexOfFirstItem = indexOfLastItem - coinsPerPage
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -28,6 +36,7 @@ const CoinsTable = () => {
                 coinList={ coinList } 
                 setCoinList={ setCoinList }
                 data={ data }
+                setCurrentPage={ setCurrentPage }
             />
 
             <table className="table table-dark">
@@ -40,7 +49,7 @@ const CoinsTable = () => {
 
                 </thead>
                 <tbody>
-                    { coinList?.map(coin => {
+                    { coinList?.slice(indexOfFirstItem, indexOfLastItem).map(coin => {
 
                         let profit = coin.price_change_percentage_24h >= 0
 
@@ -73,6 +82,12 @@ const CoinsTable = () => {
                     } ) }
                 </tbody>
             </table>
+
+            <Pagination
+                totalCoins={ coinList?.length }
+                coinsPerPage={ coinsPerPage }
+                setCurrentPage={ setCurrentPage } 
+            />
         </div>
     )
 }

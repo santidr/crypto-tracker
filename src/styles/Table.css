@@ -25,3 +25,16 @@ tr td {
 tr:hover td {
     background-color: transparent;
 }
+
+.page-link {
+    color: white;
+}
+
+.page-link:hover {
+    color: gold;
+}
+
+.activeItem {
+    background-color: gold !important;
+    color: black;
+}
