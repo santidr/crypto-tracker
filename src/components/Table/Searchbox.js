@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Searchtbox = ({ coinList, setCoinList, data, setPage: setCurrentPage }) => {
+const Searchtbox = ({ coinList, setCoinList, data, setCurrentPage }) => {
 
     const [searchInput, setSearchInput] = useState('')
 

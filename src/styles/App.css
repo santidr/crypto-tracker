@@ -29,3 +29,7 @@ a {
 .selector {
     width: 80px;
 }
+
+h5 > span.coin-numbers {
+    font-weight: 300;
+}
