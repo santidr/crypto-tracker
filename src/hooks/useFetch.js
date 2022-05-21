@@ -6,6 +6,10 @@ const useFetch = (url) => {
     
     const [state, setState] = useState(initState)
 
+    useEffect(() => {
+        fetchData()
+    }, [ url ])
+
     const fetchData = async () => {
         try {
             const resp = await fetch(url)
@@ -23,10 +27,6 @@ const useFetch = (url) => {
             })
         }
     }
-
-    useEffect(() => {
-        fetchData()
-    }, [ url ])
 
     return state
 }
